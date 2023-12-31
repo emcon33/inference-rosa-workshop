@@ -1,5 +1,5 @@
 # inference-rosa-workshop
-# This is a workshop for deploying a Pytorch & FastAPI project to ROSA on AWS and perform inference. I
+# This is a workshop for deploying a Pytorch & FastAPI project to ROSA on AWS and perform inference.
 
 Containerized app that serves a containerized Resnet18 deep learning image classification model using FastAPI. We used an ImageNet pretrained model that can predict 1000 different classes of general objects, the samples are animals but it will work with anything. See class list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
 
@@ -15,7 +15,7 @@ ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
 
 Sample Backend Input Image: 
 <p align="left">
-  <a href="#"><img src="./frontend/test1.jpeg" width="200"></a> <br />
+  <a href="#"><img src="./test4.jpeg" width="200"></a> <br />
   <em> 
   </em>
 </p>
