@@ -1,6 +1,69 @@
-# PyTorch + FastAPI Backend
+# inference-rosa-workshop
+# This is a workshop for deploying a Pytorch & FastAPI project to ROSA on AWS and perform inference. I
 
-Serves a containerized Resnet18 deep learning image classification model using FastAPI. We used an ImageNet pretrained model that can predict 1000 different classes of general objects. See class list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
+Containerized app that serves a containerized Resnet18 deep learning image classification model using FastAPI. We used an ImageNet pretrained model that can predict 1000 different classes of general objects, the samples are animals but it will work with anything. See class list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
+
+Forked from this project for a workshop: https://github.com/hasibzunair/imagercg-waiter
+ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
+
+#### Todos
+* Build Frontend (Gradio/Python version issue) 
+* Port to Podman 
+* Port to OpenShift/ROSA
+* Rebuild as Workshop for AWS ROSA
+
+
+Sample Backend Input Image: 
+<p align="left">
+  <a href="#"><img src="./frontend/test1.jpeg" width="200"></a> <br />
+  <em> 
+  </em>
+</p>
+
+Sample Text Output:
+
+{"success":true,"predictions":[{"label":"black-and-tan coonhound","probability":0.5641617774963379},{"label":"Doberman","probability":0.3869141638278961},{"label":"bluetick","probability":0.012455757707357407},{"label":"Rottweiler","probability":0.007904204539954662},{"label":"Gordon setter","probability":0.006333122029900551}]}%
+
+
+OpenShift/ROSA instructions (deck to be created) 
+1. Build Image from github directly or use the 
+
+Use OpenShift/ROSA to prebuild this image 
+gh repo clone emcon33/inference-rosa-workshop
+
+pre-built image 
+docker.io/andrewwg/classification_model_serving
+
+or CLI
+oc new-project emcon33-waiter
+oc run dog-inference --8000:80 andrewwg/classification_model_serving --port 5000
+oc expose pod andrewwg/classification_model_serving --port 80 --target-port 5000 
+
+2. Expose the application and Share via Console 
+#Using GUI go to network and create route to the service: 
+#get your API url (unique to your cluster) 
+
+3. Collect the URL and Upload test image 
+oc get svc
+oc get ingresses.config/cluster -o jsonpath={.spec.domain}
+#curl -X POST -F image=@test2.jpeg "http://0.0.0.0:8000/api/predict"
+
+4. Set health checks etc. 
+5. Create ArgoCD GitOps Pipeline and point to source backend image
+6. Force updates or if you have clone the lab to your own, modify in VSCode and Commit changes to trigger an update. 
+7. Each rebuild will upate the model available from ResNet18 
+
+Example full URL
+curl -X POST -F image=@dog.jpg 'http://classification_model_serving-default.apps.rosa-rrtdp.bmcz.p1.openshiftapps.com/predict'
+
+#ArgoCD/Tekton Pipeline 
+https://docs.openshift.com/container-platform/4.10/cicd/gitops/setting-up-argocd-instance.html
+
+
+### References
+Original source https://towardsai.net/p/machine-learning/build-and-deploy-custom-docker-images-for-object-recognition
+Forked from this github https://github.com/hasibzunair/imagercg-waiter
+
 
 ### Local development
 To use this code for local development, install the requirements using (make sure Python version is 3.8):
