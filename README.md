@@ -7,11 +7,11 @@ Forked from this project for a workshop: https://github.com/hasibzunair/imagercg
 ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
 
 #### Todos
-* Build Frontend (Gradio/Python version issue) 
 * Port to Podman 
 * Port to OpenShift/ROSA
 * Rebuild as Workshop for AWS ROSA
-
+* Add ArgoCD GitOps Pipeline deployment option 
+* Build Frontend (Gradio/Python version issue) 
 
 Sample Backend Input Image: 
 <p align="left">
@@ -21,7 +21,6 @@ Sample Backend Input Image:
 </p>
 
 Sample Text Output:
-
 {"success":true,"predictions":[{"label":"black-and-tan coonhound","probability":0.5641617774963379},{"label":"Doberman","probability":0.3869141638278961},{"label":"bluetick","probability":0.012455757707357407},{"label":"Rottweiler","probability":0.007904204539954662},{"label":"Gordon setter","probability":0.006333122029900551}]}%
 
 
