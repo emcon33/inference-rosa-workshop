@@ -53,7 +53,7 @@ oc get ingresses.config/cluster -o jsonpath={.spec.domain}
 7. Each rebuild will upate the model available from ResNet18 
 
 Example full URL
-curl -X POST -F image=@dog.jpg 'http://classification_model_serving-default.apps.rosa-rrtdp.bmcz.p1.openshiftapps.com/predict'
+curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.rosa-vs2cl.zpq2.p1.openshiftapps.com/api/predict"
 
 #ArgoCD/Tekton Pipeline 
 https://docs.openshift.com/container-platform/4.10/cicd/gitops/setting-up-argocd-instance.html
