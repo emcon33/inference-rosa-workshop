@@ -15,7 +15,7 @@ ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
 
 Sample Backend Input Image: 
 <p align="left">
-  <a href="#"><img src="./sample.jpg" width="200"></a> <br />
+  <a href="#"><img src="./sample.jpg" width="400"></a> <br />
   <em> 
   </em>
 </p>
