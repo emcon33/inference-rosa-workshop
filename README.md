@@ -7,14 +7,14 @@ Containerized app that serves a containerized Resnet18 deep learning image class
 Forked from this project for a workshop: https://github.com/hasibzunair/imagercg-waiter
 ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
 
+A second option is to add a Gradio web front end to this probject. Here is the git repo for the web front end option. 
+https://github.com/emcon33/inference-rosa-frontend
+
 #### Todos
 * Port to Podman 
-* Port to OpenShift/ROSA
-* Rebuild as Workshop for AWS ROSA
 * Add ArgoCD GitOps Pipeline deployment option 
-* Build Frontend (Gradio/Python version issue) 
 
-Sample Backend Input Image: 
+Sample Backend App and Input Image: 
 <p align="left">
   <a href="#"><img src="./sample.jpg" width="600"></a> <br />
   <em> 
@@ -40,34 +40,19 @@ Once build completes click on the web swizle and it will open a touch page, upda
 from your repo director with local test3.jpeg example 
 curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.rosa-vs2cl.zpq2.p1.openshiftapps.com/api/predict"
 
-Test with other images
+Test with other images note not all will work due to size limits and it prefers jpeg/jpg images. 
 
-
-Use a pre-built image if you have build issues  
+Use a pre-built image if you have build issues with the build
 docker.io/andrewwg/classification_model_serving
 
-Once it is built click on web and you will see a place holder page. 
+Once it is built click on web open on the GUI and you will see a place holder page, upload your image via API with text return. 
 
 or CLI
 oc new-project emcon33-waiter
 oc run dog-inference --8000:80 andrewwg/classification_model_serving --port 5000
 oc expose pod andrewwg/classification_model_serving --port 80 --target-port 5000 
 
-Additional Items 
-#1 Rebuild the App
-#2 If you have a github account, fork the code base and download to your laptop
-#3 Use vsCode to update the image and push fixes to ROSA
-#4 Deploy with your github 
-#5 Set health checks etc. 
-#6 Create ArgoCD GitOps Pipeline and point to source backend image
-#7 Force pipeline buildds 
-
-See Frontend Gradio Option 
-https://github.com/emcon33/inference-rosa-frontend
-
-
-
-
+Todo: 
 #ArgoCD/Tekton Pipeline 
 https://docs.openshift.com/container-platform/4.10/cicd/gitops/setting-up-argocd-instance.html
 
