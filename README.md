@@ -26,31 +26,31 @@ Sample Text Output:
 
 
 OpenShift/ROSA instructions (deck to be created) 
-1. Build Image from github directly or use the 
+1. Bring up a generic ROSA cluster in AWS. This also works with OpenShift or other Managed OpenShift Options to demonstrate portability.
 
-Use OpenShift/ROSA to prebuild this image 
-gh repo clone emcon33/inference-rosa-workshop
+2.  Build Image from github directly or use the pre built image both work.
+  This Repo: https://github.com/emcon33/inference-rosa-workshop
+  Prebuilt image https://github.com/emcon33/inference-rosa-frontend
 
-GUI Build Directly in ROSA/OpenShift
-Switch to Developer Persona
-Add, Github, and add https://github.com/emcon33/inference-rosa-workshop with defaults
-Watch the logs build
-Once build completes click on the web swizle and it will open a touch page, update the below link for your URL. Be sure you have a local image to upload. 
+3. Obtain your URL for the web front end from the image, it should open to a place holder page. 
 
-from your repo director with local test3.jpeg example 
+4. Make sure you are in a local directory with a test image and "curl" your image to the API front end.
 curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.rosa-vs2cl.zpq2.p1.openshiftapps.com/api/predict"
 
 Test with other images note not all will work due to size limits and it prefers jpeg/jpg images. 
 
-Use a pre-built image if you have build issues with the build
-docker.io/andrewwg/classification_model_serving
+5. Additional test images are available on the source git repo or use your own, it works with animals and objects. 
 
+6. CLI version
 Once it is built click on web open on the GUI and you will see a place holder page, upload your image via API with text return. 
 
 or CLI
 oc new-project emcon33-waiter
 oc run dog-inference --8000:80 andrewwg/classification_model_serving --port 5000
 oc expose pod andrewwg/classification_model_serving --port 80 --target-port 5000 
+
+A second option is to add a Gradio web front end to this probject. Here is the git repo for the web front end option. 
+https://github.com/emcon33/inference-rosa-frontend
 
 Todo: 
 #ArgoCD/Tekton Pipeline 
