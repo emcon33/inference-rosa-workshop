@@ -2,6 +2,9 @@
 # This is a workshop for deploying a Pytorch & FastAPI project to ROSA on AWS and perform inference.
 by Andrew Grimes and Jim Garrett of Red Hat 
 
+If you need a ROSA cluster, you can use this program to get a free ROSA Cluster Trial 
+https://www.redhat.com/en/blog/introducing-red-hat-openshift-service-aws-hands-experience
+
 Containerized app that serves a containerized Resnet18 deep learning image classification model using FastAPI. We used an ImageNet pretrained model that can predict 1000 different classes of general objects, the samples are animals but it will work with anything. See class list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
 
 Forked from this project for a workshop: https://github.com/hasibzunair/imagercg-waiter
@@ -44,17 +47,9 @@ Test with other images note not all will work due to size limits and it prefers 
 6. CLI version
 Once it is built click on web open on the GUI and you will see a place holder page, upload your image via API with text return. 
 
-or CLI
-oc new-project emcon33-waiter
-oc run dog-inference --8000:80 andrewwg/classification_model_serving --port 5000
-oc expose pod andrewwg/classification_model_serving --port 80 --target-port 5000 
-
-A second option is to add a Gradio web front end to this probject. Here is the git repo for the web front end option. 
+Optional front end to this probject. Here is the git repo just follow the instructions to fork and modify the URL from this deployed repo.  
 https://github.com/emcon33/inference-rosa-frontend
 
-Todo: 
-#ArgoCD/Tekton Pipeline 
-https://docs.openshift.com/container-platform/4.10/cicd/gitops/setting-up-argocd-instance.html
 
 
 ### References
