@@ -35,8 +35,6 @@ OpenShift/ROSA instructions (deck to be created)
 4. From local system use a test1.image with your URL updated to this command and "curl" your image to the API front end.
 curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.rosa-vs2cl.zpq2.p1.openshiftapps.com/api/predict"
 
-Test with other images note not all will work due to size limits and it prefers jpeg/jpg images. 
-
 5. Additional test images are available on the source git repo or use your own, it works with animals and objects. 
 
 Optional front end to this probject. Here is the git repo just follow the instructions to fork and modify the URL from this deployed repo.  
