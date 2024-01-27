@@ -44,6 +44,7 @@ https://github.com/emcon33/inference-rosa-frontend
 
 ### References
 Original source https://towardsai.net/p/machine-learning/build-and-deploy-custom-docker-images-for-object-recognition
+
 Forked from this github https://github.com/hasibzunair/imagercg-waiter
 
 
