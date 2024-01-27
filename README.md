@@ -37,7 +37,7 @@ curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.ro
 
 5. Additional test images are available on the source git repo or use your own, it works with animals and objects. 
 
-Optional front end to this probject. Here is the git repo just follow the instructions to fork and modify the URL from this deployed repo.  
+Optional front end to this project. Here is the git repo just follow the instructions to fork and modify the URL from this deployed repo.  
 https://github.com/emcon33/inference-rosa-frontend
 
 
