@@ -7,11 +7,7 @@ https://www.redhat.com/en/blog/introducing-red-hat-openshift-service-aws-hands-e
 
 Containerized app that serves a containerized Resnet18 deep learning image classification model using FastAPI. We used an ImageNet pretrained model that can predict 1000 different classes of general objects, the samples are animals but it will work with anything. See class list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
 
-Forked from this project for a workshop: https://github.com/hasibzunair/imagercg-waiter
 ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
-
-A second option is to add a Gradio web front end to this probject. Here is the git repo for the web front end option. 
-https://github.com/emcon33/inference-rosa-frontend
 
 Sample Backend App and Input Image: 
 <p align="left">
