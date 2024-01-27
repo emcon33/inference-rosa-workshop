@@ -31,21 +31,17 @@ Sample Text Output:
 OpenShift/ROSA instructions (deck to be created) 
 1. Bring up a generic ROSA cluster in AWS. This also works with OpenShift or other Managed OpenShift Options to demonstrate portability.
 
-2.  Build Image from github directly or use the pre built image both work.
+2. Create a Project and use the Git build option taking the defaults. watch the build logs until complete to see how ROSA builds. 
   This Repo: https://github.com/emcon33/inference-rosa-workshop
-  Prebuilt image https://github.com/emcon33/inference-rosa-frontend
 
-3. Obtain your URL for the web front end from the image, it should open to a place holder page. 
+3. Obtain your URL for the web front end from the image via topology map, it should open to a place holder page. 
 
-4. Make sure you are in a local directory with a test image and "curl" your image to the API front end.
+4. From local system use a test1.image with your URL updated to this command and "curl" your image to the API front end.
 curl -X POST -F image=@test3.jpeg "https://inference-rosa-workshop-test7.apps.rosa-vs2cl.zpq2.p1.openshiftapps.com/api/predict"
 
 Test with other images note not all will work due to size limits and it prefers jpeg/jpg images. 
 
 5. Additional test images are available on the source git repo or use your own, it works with animals and objects. 
-
-6. CLI version
-Once it is built click on web open on the GUI and you will see a place holder page, upload your image via API with text return. 
 
 Optional front end to this probject. Here is the git repo just follow the instructions to fork and modify the URL from this deployed repo.  
 https://github.com/emcon33/inference-rosa-frontend
