@@ -13,10 +13,6 @@ ResNet18 https://www.mathworks.com/help/deeplearning/ref/resnet18.html
 A second option is to add a Gradio web front end to this probject. Here is the git repo for the web front end option. 
 https://github.com/emcon33/inference-rosa-frontend
 
-#### Todos
-* Port to Podman 
-* Add ArgoCD GitOps Pipeline deployment option 
-
 Sample Backend App and Input Image: 
 <p align="left">
   <a href="#"><img src="./sample.jpg" width="600"></a> <br />
